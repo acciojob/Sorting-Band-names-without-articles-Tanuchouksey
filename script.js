@@ -1,18 +1,20 @@
 //your code here
-/* Your CSS code here. */
 //your code here
+const bands = ['The Beatles', 'Led Zeppelin', 'Pink Floyd', 'Aerosmith'];
 
-// Suppose an array that contains a list of band names
-let bandNames = ['The Beatles', 'Led Zeppelin', 'Aerosmith', 'The Rolling Stones', 'Queen'];
-
-// Function to remove articles from band names for sorting
-function removeArticles(name) {
-  return name.replace(/^(a|an|the)\s/i, '');
+// Define the strip function to remove common words from band names
+function strip(word) {
+const regex = /^(a |the |an )/i;
+return word.replace(regex, '').trim();
 }
 
-// Sort the band names in lexicographic order
-bandNames.sort((a, b) => removeArticles(a).localeCompare(removeArticles(b)));
+// Sort the bands array using the strip function to ignore common words
+const sortedBands = bands.sort((a, b) => (strip(a) > strip(b)) ? 1 : -1);
 
-// Get the ul element with the id 'band'
-const bandList = document.ge
-
+// Update the DOM with the sorted band names
+const bandList = document.getElementById('band');
+sortedBands.forEach(band => {
+const listItem = document.createElement('li');
+listItem.textContent = band;
+bandList.appendChild(listItem);
+});
