@@ -1,6 +1,8 @@
 //your code here
 //your code here
-const bands = ['The Beatles', 'Led Zeppelin', 'Pink Floyd', 'Aerosmith'];
+
+let touristSpots = ['The Virupaksha Temple', 'Victoria Memorial', 'Tajmahal'];
+const bands = ['The Virupaksha Temple', 'Victoria Memorial', 'Tajmahal'];
 
 // Define the strip function to remove common words from band names
 function strip(word) {
